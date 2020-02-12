@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://objects/enemies/IronTurret.gd" type="Script" id=1]
+[ext_resource path="res://assets/visuals/entities/enemies/ironTurret.png" type="Texture" id=2]
+[ext_resource path="res://assets/visuals/CircleGradient.png" type="Texture" id=3]
+[ext_resource path="res://objects/debug/DebugVector.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 240.0
+
+[node name="IronTurret" type="StaticBody2D"]
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="Base" type="Sprite" parent="."]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+hframes = 3
+
+[node name="Head" type="Sprite" parent="."]
+editor/display_folded = true
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+hframes = 3
+frame = 1
+
+[node name="Barrels" type="Sprite" parent="Head"]
+position = Vector2( 0, -8 )
+texture = ExtResource( 2 )
+hframes = 3
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="PlayerDetectionRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionRange"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="PlayerDetectionRange"]
+modulate = Color( 1, 1, 1, 0.392157 )
+scale = Vector2( 1.6, 1.6 )
+texture = ExtResource( 3 )
+
+[node name="DV_Turret" parent="." instance=ExtResource( 4 )]
+editor/display_folded = false
+visible = false
+
+[node name="DV_Target" parent="." instance=ExtResource( 4 )]
+visible = false
+[connection signal="body_entered" from="PlayerDetectionRange" to="." method="_detection_range_entered"]
+[connection signal="body_exited" from="PlayerDetectionRange" to="." method="_detection_range_exited"]

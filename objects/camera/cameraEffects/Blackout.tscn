@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/visuals/backgrounds/BG_sky.png" type="Texture" id=1]
+[ext_resource path="res://objects/camera/cameraEffects/Blackout.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=2]
+resource_name = "end"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.196078, 0.196078, 0.196078, 1 ), Color( 0.196078, 0.196078, 0.196078, 0.764706 ), Color( 0.196078, 0.196078, 0.196078, 0.529412 ), Color( 0.196078, 0.196078, 0.196078, 0.294118 ), Color( 0.196078, 0.196078, 0.196078, 0.0588235 ), Color( 0.196078, 0.196078, 0.196078, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.001, 1.002 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 0.196078, 0.196078, 0.196078, 0 ), Color( 0.196078, 0.196078, 0.196078, 0.0588235 ), Color( 0.196078, 0.196078, 0.196078, 0.294118 ), Color( 0.196078, 0.196078, 0.196078, 0.529412 ), Color( 0.196078, 0.196078, 0.196078, 0.764706 ), Color( 0.196078, 0.196078, 0.196078, 1 ), Color( 0.196078, 0.196078, 0.196078, 1 ), Color( 0.196078, 0.196078, 0.196078, 1 ) ]
+}
+
+[node name="Blackout" type="Sprite"]
+modulate = Color( 0.196078, 0.196078, 0.196078, 0 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/end = SubResource( 2 )
+anims/start = SubResource( 1 )

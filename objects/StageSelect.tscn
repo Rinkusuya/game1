@@ -1,0 +1,685 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://objects/StageSelect.gd" type="Script" id=1]
+[ext_resource path="res://assets/visuals/StageSelect.png" type="Texture" id=2]
+[ext_resource path="res://assets/visuals/StageSelectBossSelect.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/megaman2font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/audio/stageSelectLoop.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/selected.wav" type="AudioStream" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "available"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../FishermanBG:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../FishermanBG/Fisherman:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../FishermanBG/FishermanHover:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "hover"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../FishermanBG/FishermanHover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "selected"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../FishermanBG/FishermanHover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_selectedBlink"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../FishermanBG:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../FishermanBG/Fisherman:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../FishermanBG/FishermanHover:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "available"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../SnowmanBG:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../SnowmanBG/Snowman:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../SnowmanBG/SnowmanHover:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "hover"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../SnowmanBG/SnowmanHover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "selected"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../SnowmanBG/SnowmanHover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_selectedBlink"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "unavailable"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../SnowmanBG:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../SnowmanBG/Snowman:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../SnowmanBG/SnowmanHover:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "available"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CoalmanBG:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CoalmanBG/Coalman:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../CoalmanBG/CoalmanHover:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "hover"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CoalmanBG/CoalmanHover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "selected"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CoalmanBG/CoalmanHover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_selectedBlink"
+} ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "unavailable"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../CoalmanBG:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CoalmanBG/Coalman:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../CoalmanBG/CoalmanHover:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "available"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../SpacemanBG:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../SpacemanBG/Spaceman:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../SpacemanBG/SpacemanHover:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "hover"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../SpacemanBG/SpacemanHover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "selected"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../SpacemanBG/SpacemanHover:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_selectedBlink"
+} ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "unavailable"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../SpacemanBG:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../SpacemanBG/Spaceman:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../SpacemanBG/SpacemanHover:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="StageSelect" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="StageSelectBG" type="Sprite" parent="."]
+position = Vector2( 480, 320 )
+texture = ExtResource( 2 )
+
+[node name="FishermanBG" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 288, 320 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+hframes = 10
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FishermanBG"]
+anims/available = SubResource( 1 )
+anims/hover = SubResource( 2 )
+anims/selected = SubResource( 3 )
+anims/unavailable = SubResource( 4 )
+
+[node name="Fisherman" type="Sprite" parent="FishermanBG"]
+texture = ExtResource( 3 )
+hframes = 10
+
+[node name="FishermanHover" type="Sprite" parent="FishermanBG"]
+visible = false
+texture = ExtResource( 3 )
+hframes = 10
+frame = 4
+
+[node name="FishermanButton" type="Button" parent="FishermanBG"]
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+flat = true
+
+[node name="SnowmanBG" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 480, 160 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+hframes = 10
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SnowmanBG"]
+anims/available = SubResource( 5 )
+anims/hover = SubResource( 6 )
+anims/selected = SubResource( 7 )
+anims/unavailable = SubResource( 8 )
+
+[node name="Snowman" type="Sprite" parent="SnowmanBG"]
+texture = ExtResource( 3 )
+hframes = 10
+frame = 1
+
+[node name="SnowmanHover" type="Sprite" parent="SnowmanBG"]
+visible = false
+texture = ExtResource( 3 )
+hframes = 10
+frame = 4
+
+[node name="SnowmanButton" type="Button" parent="SnowmanBG"]
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+flat = true
+
+[node name="CoalmanBG" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 672, 320 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+hframes = 10
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CoalmanBG"]
+anims/available = SubResource( 9 )
+anims/hover = SubResource( 10 )
+anims/selected = SubResource( 11 )
+anims/unavailable = SubResource( 12 )
+
+[node name="Coalman" type="Sprite" parent="CoalmanBG"]
+texture = ExtResource( 3 )
+hframes = 10
+frame = 2
+
+[node name="CoalmanHover" type="Sprite" parent="CoalmanBG"]
+visible = false
+texture = ExtResource( 3 )
+hframes = 10
+frame = 4
+
+[node name="CoalmanButton" type="Button" parent="CoalmanBG"]
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+flat = true
+
+[node name="SpacemanBG" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 480, 512 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+hframes = 10
+frame = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpacemanBG"]
+anims/available = SubResource( 13 )
+anims/hover = SubResource( 14 )
+anims/selected = SubResource( 15 )
+anims/unavailable = SubResource( 16 )
+
+[node name="Spaceman" type="Sprite" parent="SpacemanBG"]
+texture = ExtResource( 3 )
+hframes = 10
+frame = 3
+
+[node name="SpacemanHover" type="Sprite" parent="SpacemanBG"]
+visible = false
+texture = ExtResource( 3 )
+hframes = 10
+frame = 4
+
+[node name="SpacemanButton" type="Button" parent="SpacemanBG"]
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 16.0
+margin_bottom = 16.0
+flat = true
+
+[node name="PressStart!" type="Label" parent="."]
+margin_left = 416.0
+margin_top = 264.0
+margin_right = 569.0
+margin_bottom = 406.0
+custom_fonts/font = ExtResource( 4 )
+text = "stage
+select
+
+press
+start!"
+
+[node name="AudioStreamPlayer_Song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="AudioStreamPlayer_FX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -14.0
+[connection signal="mouse_entered" from="FishermanBG/FishermanButton" to="." method="_hover" binds= [ "Fisherman" ]]
+[connection signal="mouse_exited" from="FishermanBG/FishermanButton" to="." method="_hoverEnd" binds= [ "Fisherman" ]]
+[connection signal="pressed" from="FishermanBG/FishermanButton" to="." method="_buttonPressed" binds= [ "Fisherman" ]]
+[connection signal="mouse_entered" from="SnowmanBG/SnowmanButton" to="." method="_hover" binds= [ "Snowman" ]]
+[connection signal="mouse_exited" from="SnowmanBG/SnowmanButton" to="." method="_hoverEnd" binds= [ "Snowman" ]]
+[connection signal="pressed" from="SnowmanBG/SnowmanButton" to="." method="_buttonPressed" binds= [ "Snowman" ]]
+[connection signal="mouse_entered" from="CoalmanBG/CoalmanButton" to="." method="_hover" binds= [ "Coalman" ]]
+[connection signal="mouse_exited" from="CoalmanBG/CoalmanButton" to="." method="_hoverEnd" binds= [ "Coalman" ]]
+[connection signal="pressed" from="CoalmanBG/CoalmanButton" to="." method="_buttonPressed" binds= [ "Coalman" ]]
+[connection signal="mouse_entered" from="SpacemanBG/SpacemanButton" to="." method="_hover" binds= [ "Spaceman" ]]
+[connection signal="mouse_exited" from="SpacemanBG/SpacemanButton" to="." method="_hoverEnd" binds= [ "Spaceman" ]]
+[connection signal="pressed" from="SpacemanBG/SpacemanButton" to="." method="_buttonPressed" binds= [ "Spaceman" ]]

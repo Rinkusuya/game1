@@ -1,0 +1,261 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://objects/levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://assets/visuals/backgrounds/BG_sky.png" type="Texture" id=2]
+[ext_resource path="res://assets/visuals/backgrounds/BG_closerocks.png" type="Texture" id=3]
+[ext_resource path="res://assets/visuals/backgrounds/BG_manyRocksEntrance.png" type="Texture" id=4]
+[ext_resource path="res://assets/visuals/backgrounds/BG_manyRocksCoal.png" type="Texture" id=5]
+[ext_resource path="res://assets/visuals/tilesets/CoalmanTileset.tres" type="TileSet" id=6]
+[ext_resource path="res://objects/tiles/Torch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/tiles/TopHandLadder.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/tiles/HandLadder.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_J.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_l.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/camera/cameraEffects/BlackoutArea.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/camera/GameCamera.tscn" type="PackedScene" id=14]
+[ext_resource path="res://addons/DYNAMIC_WATER/dynamic_water.gd" type="Script" id=15]
+[ext_resource path="res://addons/DYNAMIC_WATER/demo_droplets_particles_materials/water_droplets.tres" type="Material" id=16]
+[ext_resource path="res://assets/audio/disisnotlava.wav" type="AudioStream" id=17]
+[ext_resource path="res://objects/levels/AudioStreamPlayer2D.gd" type="Script" id=18]
+[ext_resource path="res://assets/audio/disislava.wav" type="AudioStream" id=19]
+[ext_resource path="res://objects/levels/Node2D.gd" type="Script" id=20]
+[ext_resource path="res://objects/instadeath_blocks/Instadeath_Block.gd" type="Script" id=21]
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 120, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -42, 0 )
+angular_velocity = -7.80413e-019
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 1.0
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.836643, 0.847656, 0.413895, 1, 0.886719, 0.744841, 0.207825, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+width = 2
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.552147, 1 )
+colors = PoolColorArray( 0.894118, 0.631373, 0.176471, 0, 0.894118, 0.631373, 0.176471, 0.742331, 0.894118, 0.631373, 0.176471, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+width = 480
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 240, 80 )
+
+[node name="CoalmanStage1" type="Node2D" groups=[
+"level_root",
+]]
+script = ExtResource( 1 )
+
+[node name="Background" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="BG_sky" type="Sprite" parent="Background"]
+position = Vector2( 480, 320 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 2 )
+
+[node name="BG_sky2" type="Sprite" parent="Background"]
+position = Vector2( 1440, 320 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 2 )
+
+[node name="BG_closerocks" type="Sprite" parent="Background"]
+modulate = Color( 0.470588, 0.470588, 0.470588, 1 )
+position = Vector2( 480, 320 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 3 )
+
+[node name="BG_closerocksEntrance" type="Sprite" parent="Background"]
+modulate = Color( 0.470588, 0.470588, 0.470588, 1 )
+position = Vector2( 1440, 320 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+
+[node name="BG_closerocksCoal" type="Sprite" parent="Background"]
+modulate = Color( 0.470588, 0.470588, 0.470588, 1 )
+position = Vector2( 2400, 320 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="BG_closerocksCoal2" type="Sprite" parent="Background"]
+modulate = Color( 0.470588, 0.470588, 0.470588, 1 )
+position = Vector2( 3360, 320 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="LevelTiles" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="CoalmanTileset_TileMap" type="TileMap" parent="LevelTiles"]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65535, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, 1, 0, 20, 1, 0, 21, 1, 0, 22, 1, 0, 23, 1, 0, 24, 1, 0, 25, 1, 0, 26, 1, 0, 27, 1, 0, 28, 1, 0, 29, 1, 0, 30, 2, 0, 31, 2, 0, 32, 2, 0, 33, 2, 0, 34, 2, 0, 35, 2, 0, 36, 2, 0, 37, 2, 0, 131071, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65561, 1, 0, 65562, 1, 0, 65563, 1, 0, 65564, 1, 0, 65565, 1, 0, 65566, 2, 0, 65567, 2, 0, 65568, 2, 0, 65569, 2, 0, 65570, 2, 0, 65571, 2, 0, 65572, 2, 0, 196607, 1, 0, 262143, 1, 0, 327679, 1, 0, 393215, 1, 0, 458751, 1, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 524287, 1, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 1, 0, 458769, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 0, 458773, 1, 0, 458774, 1, 0, 458775, 1, 0, 458776, 0, 0, 458777, 0, 0, 458796, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 1, 0, 524314, 0, 0, 524315, 0, 0, 524316, 0, 0, 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524322, 0, 0, 524323, 0, 0, 524324, 0, 0, 524325, 0, 0, 524326, 0, 0, 524327, 0, 0, 524328, 0, 0, 524329, 0, 0, 524330, 0, 0, 524331, 0, 0, 524332, 2, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 1, 0, 589853, 1, 0, 589854, 2, 0, 589855, 2, 0, 589856, 2, 0, 589857, 2, 0, 589858, 2, 0, 589859, 2, 0, 589860, 2, 0, 589861, 2, 0, 589862, 2, 0, 589863, 2, 0, 589864, 2, 0, 589865, 2, 0, 589866, 2, 0, 589867, 2, 0, 589868, 2, 0 )
+
+[node name="Torch" parent="LevelTiles" instance=ExtResource( 7 )]
+position = Vector2( 2656, 256 )
+
+[node name="TopHandLadder" parent="LevelTiles" instance=ExtResource( 8 )]
+position = Vector2( 544, 288 )
+Type = "Iron"
+
+[node name="HandLadder3" parent="LevelTiles" instance=ExtResource( 9 )]
+position = Vector2( 544, 352 )
+Type = "Iron"
+
+[node name="HandLadder2" parent="LevelTiles" instance=ExtResource( 9 )]
+position = Vector2( 544, 416 )
+Type = "Iron"
+
+[node name="HandLadder" parent="LevelTiles" instance=ExtResource( 9 )]
+position = Vector2( 544, 480 )
+Type = "Iron"
+
+[node name="Player" parent="." instance=ExtResource( 10 )]
+position = Vector2( 96, 480 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Others" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="DispensableContainer" type="Node2D" parent="Others" groups=[
+"dispensable_container",
+]]
+
+[node name="CameraDelimiters" type="Node2D" parent="Others"]
+editor/display_folded = true
+
+[node name="Delimiter_J" parent="Others/CameraDelimiters" instance=ExtResource( 11 )]
+position = Vector2( 0, 640 )
+rotation = 1.5708
+
+[node name="Delimiter_l2" parent="Others/CameraDelimiters" instance=ExtResource( 12 )]
+position = Vector2( 960, 640 )
+rotation = 1.5708
+
+[node name="Delimiter_l3" parent="Others/CameraDelimiters" instance=ExtResource( 12 )]
+position = Vector2( 960, 0 )
+rotation = 1.5708
+
+[node name="Delimiter_l4" parent="Others/CameraDelimiters" instance=ExtResource( 12 )]
+position = Vector2( 1920, 0 )
+rotation = 1.5708
+
+[node name="Delimiter_l5" parent="Others/CameraDelimiters" instance=ExtResource( 12 )]
+position = Vector2( 1920, 640 )
+rotation = 1.5708
+
+[node name="Delimiter_l6" parent="Others/CameraDelimiters" instance=ExtResource( 12 )]
+position = Vector2( 2880, 640 )
+rotation = 1.5708
+
+[node name="Delimiter_l7" parent="Others/CameraDelimiters" instance=ExtResource( 12 )]
+position = Vector2( 2880, 0 )
+rotation = 1.5708
+
+[node name="Delimiter_J2" parent="Others/CameraDelimiters" instance=ExtResource( 11 )]
+rotation = 3.14159
+
+[node name="LevelTransitions" type="Node2D" parent="Others"]
+visible = false
+
+[node name="Effects" type="Node2D" parent="Others"]
+editor/display_folded = true
+
+[node name="BlackoutArea" parent="Others/Effects" instance=ExtResource( 13 )]
+position = Vector2( 1920, 320 )
+
+[node name="GameCamera" parent="." instance=ExtResource( 14 )]
+position = Vector2( 480, 320 )
+
+[node name="Lava" type="Node2D" parent="."]
+editor/display_folded = true
+light_mask = 2
+position = Vector2( 2880, 640 )
+z_index = 999
+script = ExtResource( 15 )
+ALTURA = 160.0
+LARGURA = 480.0
+RESOLUCAO = 32.0
+COR = Color( 0.839216, 0.172549, 0.172549, 0.72549 )
+droplets_material_path = ExtResource( 16 )
+AMORTECIMENTO = 0.5
+PASSES = 2
+
+[node name="Particles2D" type="Particles2D" parent="Lava"]
+position = Vector2( 224, 0 )
+scale = Vector2( 2, 2 )
+amount = 16
+lifetime = 6.0
+preprocess = 10.0
+visibility_rect = Rect2( -480, -320, 1920, 1280 )
+process_material = SubResource( 1 )
+texture = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="Lava"]
+visible = false
+position = Vector2( 240, -80 )
+scale = Vector2( 1, 160.5 )
+texture = SubResource( 5 )
+
+[node name="Light2D2" type="Light2D" parent="Lava"]
+light_mask = 2
+position = Vector2( 241.228, -161.324 )
+rotation = 1.5708
+scale = Vector2( 0.671899, 482.167 )
+texture = SubResource( 5 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Lava"]
+editor/display_folded = true
+position = Vector2( 240, -80 )
+stream = ExtResource( 17 )
+volume_db = -14.0
+autoplay = true
+max_distance = 1920.0
+attenuation = 2.0
+script = ExtResource( 18 )
+
+[node name="Timer" type="Timer" parent="Lava/AudioStreamPlayer2D"]
+one_shot = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Lava"]
+position = Vector2( 240, -80 )
+stream = ExtResource( 19 )
+autoplay = true
+max_distance = 1920.0
+attenuation = 2.0
+
+[node name="Spawner" type="Node2D" parent="Lava"]
+editor/display_folded = true
+position = Vector2( 96, 0 )
+script = ExtResource( 20 )
+
+[node name="Timer" type="Timer" parent="Lava/Spawner"]
+wait_time = 3.0
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Lava"]
+editor/display_folded = true
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava/StaticBody2D"]
+position = Vector2( 240, -80 )
+shape = SubResource( 6 )
+[connection signal="finished" from="Lava/AudioStreamPlayer2D" to="Lava/AudioStreamPlayer2D" method="_on_AudioStreamPlayer2D_finished"]
+[connection signal="timeout" from="Lava/AudioStreamPlayer2D/Timer" to="Lava/AudioStreamPlayer2D" method="_on_Timer_timeout"]
+[connection signal="finished" from="Lava/AudioStreamPlayer2D2" to="Lava/AudioStreamPlayer2D2" method="_on_AudioStreamPlayer2D_finished"]
+[connection signal="timeout" from="Lava/Spawner/Timer" to="Lava/Spawner" method="_on_Timer_timeout"]

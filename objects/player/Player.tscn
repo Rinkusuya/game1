@@ -1,0 +1,484 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://objects/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/audio/metalic sound1.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/gun_sound.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/visuals/entities/player/player.png" type="Texture" id=4]
+[ext_resource path="res://objects/InvincibilityPlayer.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "climb6"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "climb7"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "climbAttack68"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 8, 6 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attackEnd"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "climbAttack79"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 9, 7 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attackEnd"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 2.0
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "respawn"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 10 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hurtEnd"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../AudioStreamPlayer:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../AudioStreamPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.3
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 3, 4 ]
+}
+
+[sub_resource type="Animation" id=11]
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Body:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 4, -0.25, 0, 0.0487967, 0.00250387, 5, -0.0502319, 0.00436783, 0.0516671, 0.00436783, 4, -0.0495143, 0, 0.100814, -0.0087347, 3, -0.0975411, 0.00229049, 0.0976457, 0.0110257, 4, -0.100202, 0.00687218, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.6 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Body:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 4, -0.25, 0, 0.0495143, 0.00768661, 2, -0.0466439, -0.0217369, 0.0531023, 0.0217366, 4, -0.0502319, -0.0296557, 0.102736, -0.00791883, 4.5, -0.0970542, -0.0141058, 0.0997021, 0.00763083, 4, -0.0988627, -0.0357871, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.6 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Body:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.0480791, 0.0104151, 16, -0.0516671, 0, 0.0502319, 0, 0, -0.0473615, 0.18014, 0.100464, -0.0989416, -4, -0.100761, 0.214706, 0.0979754, 0.214706, 0, -0.101307, 0.121849, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.6 )
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.6
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Body:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 4, -0.25, 0, 0.0473615, -0.00404882, 5, -0.0512033, 0.000533104, 0.0492605, -0.00820208, 4, -0.0500219, -0.00404882, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.03, 0.15 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Body:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 4, -0.25, 0, 0.0466439, 0.00468683, 2, -0.0512033, 0.000104666, 0.0492605, -0.00863075, 4, -0.0493043, -0.00404882, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.03, 0.15 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Body:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.0495143, 0.0288492, 16, -0.0504857, -0.0139694, 0.0485429, -0.0139694, 0, -0.0507395, -0.0162239, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.03, 0.15 )
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.6
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Body:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 4, -0.25, 0, 0.0473615, -0.00404882, 4.5, -0.0512033, 0.000533104, 0.0492605, -0.00820208, 4, -0.0500219, -0.00404882, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.02, 0.15 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Body:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 4, -0.25, 0, 0.0466439, 0.00468683, 3, -0.0512033, 0.000104666, 0.0492605, -0.00863075, 4, -0.0493043, -0.00404882, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.02, 0.15 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Body:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.0495143, 0.0288492, 8, -0.0504857, -0.0139694, 0.0485429, -0.0139694, 0, -0.0507395, -0.0162239, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.02, 0.15 )
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Gradient" id=15]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=16]
+gradient = SubResource( 15 )
+
+[sub_resource type="Animation" id=17]
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.615686, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.117647, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.839216, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.196078, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+collision_layer = 4
+collision_mask = 2147
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite")
+autoplay = "idle"
+anims/attack = SubResource( 1 )
+anims/climb6 = SubResource( 2 )
+anims/climb7 = SubResource( 3 )
+anims/climbAttack68 = SubResource( 4 )
+anims/climbAttack79 = SubResource( 5 )
+anims/die = SubResource( 6 )
+anims/hurt = SubResource( 7 )
+anims/idle = SubResource( 8 )
+anims/jump = SubResource( 9 )
+anims/walk = SubResource( 10 )
+
+[node name="SmearPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite")
+anims/jumpSmearing = SubResource( 11 )
+anims/mediumLandingSmearing = SubResource( 12 )
+anims/smallLandingSmearing = SubResource( 13 )
+
+[node name="AttackPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 14 )
+
+[node name="Sprite" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Body" type="Sprite" parent="Sprite"]
+position = Vector2( 0, 7.61224e-009 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+hframes = 11
+
+[node name="Overlay" type="Sprite" parent="."]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 640 )
+scale = Vector2( 1.28, 1920 )
+texture = SubResource( 16 )
+
+[node name="OverlayAnimationPlayer" type="AnimationPlayer" parent="Overlay"]
+anims/poisoned = SubResource( 17 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -12, 32, 12, 32, 24, -10, 10, -26, -10, -26, -24, -10 )
+
+[node name="InvincibilityPlayer" parent="." instance=ExtResource( 5 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
