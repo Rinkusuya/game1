@@ -110,6 +110,13 @@ func timeMultiplierChanged():
 func enteredScreen():
 	$AnimationPlayer.play("default")
 	$CollisionShape2D.disabled = false
+	var player_vect = level.player.global_position-global_position
+	if player_vect.x > 0:
+		Facing = "R"
+		$Sprite.scale.x = -1
+	elif player_vect.x < 0:
+		Facing = "L"
+		$Sprite.scale.x = 1
 	visible = true
 
 func exitedScreen():
