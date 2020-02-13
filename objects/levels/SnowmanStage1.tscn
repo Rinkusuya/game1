@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://objects/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://assets/visuals/backgrounds/sea_to_sky/sea_to_sky_bg.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_J.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_l.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/camera/GameCamera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/tiles/HandLadder.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/tiles/TopHandLadder.tscn" type="PackedScene" id=10]
 
 [node name="SnowmanStage1" type="Node2D" groups=[
 "level_root",
@@ -34,7 +36,15 @@ tile_data = PoolIntArray( -393177, -1073741820, 0, -327662, 2, 0, -327641, -1073
 position = Vector2( 1824, 416 )
 
 [node name="Instadeath_Block" parent="LevelTiles/Instadeath_Block" instance=ExtResource( 4 )]
-position = Vector2( 63.9999, -3.05176e-005 )
+position = Vector2( 63.9999, -3.05176e-05 )
+
+[node name="HandLadder" parent="LevelTiles" instance=ExtResource( 9 )]
+position = Vector2( 480, 224 )
+Type = "Ice"
+
+[node name="TopHandLadder" parent="LevelTiles" instance=ExtResource( 10 )]
+position = Vector2( 480, 160 )
+Type = "Ice"
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 104, 416 )
