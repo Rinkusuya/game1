@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://objects/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://assets/visuals/backgrounds/sea_to_sky/sea_to_sky_bg.png" type="Texture" id=2]
@@ -15,11 +15,12 @@
 [ext_resource path="res://objects/enemies/Miner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://objects/enemies/Slime.tscn" type="PackedScene" id=14]
 [ext_resource path="res://objects/enemies/Penguin.tscn" type="PackedScene" id=15]
-[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_J.tscn" type="PackedScene" id=16]
-[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_T.tscn" type="PackedScene" id=17]
-[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_l.tscn" type="PackedScene" id=18]
-[ext_resource path="res://objects/camera/GameCamera.tscn" type="PackedScene" id=19]
-[ext_resource path="res://icon.png" type="Texture" id=20]
+[ext_resource path="res://objects/enemies/SpaceOozeBall.tscn" type="PackedScene" id=16]
+[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_J.tscn" type="PackedScene" id=17]
+[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_T.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_l.tscn" type="PackedScene" id=19]
+[ext_resource path="res://objects/camera/GameCamera.tscn" type="PackedScene" id=20]
+[ext_resource path="res://icon.png" type="Texture" id=21]
 
 [node name="TestScene" type="Node2D" groups=[
 "level_root",
@@ -681,8 +682,10 @@ position = Vector2( 1824, 1184 )
 [node name="Penguin" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( 864, 288 )
 
+[node name="SpaceOozeBall" parent="Enemies" instance=ExtResource( 16 )]
+position = Vector2( 928, -440 )
+
 [node name="Others" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="DispensableContainer" type="Node2D" parent="Others" groups=[
 "dispensable_container",
@@ -691,49 +694,49 @@ editor/display_folded = true
 [node name="CameraDelimiters" type="Node2D" parent="Others"]
 editor/display_folded = true
 
-[node name="Delimiter_J" parent="Others/CameraDelimiters" instance=ExtResource( 16 )]
+[node name="Delimiter_J" parent="Others/CameraDelimiters" instance=ExtResource( 17 )]
 position = Vector2( 0, 1280 )
 rotation = 1.5708
 
-[node name="Delimiter_J2" parent="Others/CameraDelimiters" instance=ExtResource( 16 )]
+[node name="Delimiter_J2" parent="Others/CameraDelimiters" instance=ExtResource( 17 )]
 rotation = 3.14159
 
-[node name="Delimiter_J8" parent="Others/CameraDelimiters" instance=ExtResource( 16 )]
+[node name="Delimiter_J8" parent="Others/CameraDelimiters" instance=ExtResource( 17 )]
 position = Vector2( 0, -640 )
 rotation = 3.14159
 
-[node name="Delimiter_J3" parent="Others/CameraDelimiters" instance=ExtResource( 16 )]
+[node name="Delimiter_J3" parent="Others/CameraDelimiters" instance=ExtResource( 17 )]
 editor/display_folded = false
 position = Vector2( 960, 0 )
 rotation = -1.5708
 
-[node name="Delimiter_T" parent="Others/CameraDelimiters" instance=ExtResource( 17 )]
+[node name="Delimiter_T" parent="Others/CameraDelimiters" instance=ExtResource( 18 )]
 position = Vector2( 1920, 0 )
 
-[node name="Delimiter_l" parent="Others/CameraDelimiters" instance=ExtResource( 18 )]
+[node name="Delimiter_l" parent="Others/CameraDelimiters" instance=ExtResource( 19 )]
 editor/display_folded = false
 position = Vector2( 0, 640 )
 
-[node name="Delimiter_l2" parent="Others/CameraDelimiters" instance=ExtResource( 18 )]
+[node name="Delimiter_l2" parent="Others/CameraDelimiters" instance=ExtResource( 19 )]
 position = Vector2( 960, 1280 )
 rotation = 1.5708
 
-[node name="Delimiter_l3" parent="Others/CameraDelimiters" instance=ExtResource( 18 )]
+[node name="Delimiter_l3" parent="Others/CameraDelimiters" instance=ExtResource( 19 )]
 position = Vector2( 928, -640 )
 rotation = 1.5708
 
-[node name="Delimiter_J4" parent="Others/CameraDelimiters" instance=ExtResource( 16 )]
+[node name="Delimiter_J4" parent="Others/CameraDelimiters" instance=ExtResource( 17 )]
 position = Vector2( 960, 640 )
 rotation = 1.5708
 
-[node name="Delimiter_J5" parent="Others/CameraDelimiters" instance=ExtResource( 16 )]
+[node name="Delimiter_J5" parent="Others/CameraDelimiters" instance=ExtResource( 17 )]
 position = Vector2( 1920, 1280 )
 
-[node name="Delimiter_J6" parent="Others/CameraDelimiters" instance=ExtResource( 16 )]
+[node name="Delimiter_J6" parent="Others/CameraDelimiters" instance=ExtResource( 17 )]
 position = Vector2( 1920, 640 )
 rotation = -1.5708
 
-[node name="Delimiter_J9" parent="Others/CameraDelimiters" instance=ExtResource( 16 )]
+[node name="Delimiter_J9" parent="Others/CameraDelimiters" instance=ExtResource( 17 )]
 position = Vector2( 1920, -640 )
 rotation = -1.5708
 
@@ -752,12 +755,12 @@ position = Vector2( 0, -640 )
 [node name="LevelTransition4" parent="Others/LevelTransitions" instance=ExtResource( 11 )]
 position = Vector2( -64, -640 )
 
-[node name="GameCamera" parent="." instance=ExtResource( 19 )]
+[node name="GameCamera" parent="." instance=ExtResource( 20 )]
 position = Vector2( 1440, 320 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 1440, 480 )
 scale = Vector2( 8, 8 )
 enabled = false
-texture = ExtResource( 20 )
+texture = ExtResource( 21 )
 range_height = 20.8

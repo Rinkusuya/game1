@@ -2,14 +2,28 @@ extends CommonEnemy
 
 var _paused = false
 const STARTINGLIFE = 10
+var vel = Vector2.ZERO
 
 func _ready():
 	_commonEnemy_ready(STARTINGLIFE, 20)
+	vel = Vector2(-480, 320)
+
+func _physics_process(delta):
+	._physics_process(delta)
+	
+	var trueDelta = delta
+	delta = delta*_time_multiplier
+	
+	if not out_of_bounds and not waitingToExitSpawnPoint and not _paused:
+		var collision = move_and_collide(vel*delta)
+		if collision:
+			vel = -vel.reflect(collision.normal)
 
 func respawn():
 	.respawn()
 	life = STARTINGLIFE
-	$AnimationPlayer.stop()
+	vel = Vector2(-480, 320)
+	$Sprite/AnimationPlayer.stop()
 
 func damage(atkPower):
 	life -= atkPower
@@ -25,7 +39,7 @@ func hit(obj):
 		damage(obj.attackDamage)
 
 func enteredScreen():
-	$AnimationPlayer.play("onAir")
+	$Sprite/AnimationPlayer.play("default")
 	$CollisionShape2D.disabled = false
 	visible = true
 
@@ -35,14 +49,14 @@ func exitedScreen():
 	visible = false
 
 func timeMultiplierChanged():
-	$AnimationPlayer.playback_speed = _time_multiplier
+	$Sprite/AnimationPlayer.playback_speed = _time_multiplier
 
 func pause():
 	if not _paused:
 		_paused = true
-		$AnimationPlayer.stop(false)
+		$Sprite/AnimationPlayer.stop(false)
 
 func resume():
 	if _paused:
 		_paused = false
-		$AnimationPlayer.play()
+		$Sprite/AnimationPlayer.play()
