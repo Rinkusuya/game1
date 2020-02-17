@@ -526,6 +526,7 @@ position = Vector2( 480, 320 )
 texture = ExtResource( 2 )
 
 [node name="FishermanBG" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 288, 320 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
@@ -556,6 +557,7 @@ margin_bottom = 16.0
 flat = true
 
 [node name="SnowmanBG" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 480, 160 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
@@ -587,6 +589,7 @@ margin_bottom = 16.0
 flat = true
 
 [node name="CoalmanBG" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 672, 320 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
@@ -618,6 +621,7 @@ margin_bottom = 16.0
 flat = true
 
 [node name="SpacemanBG" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 480, 512 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )

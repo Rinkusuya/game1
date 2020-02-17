@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/visuals/backgrounds/BG_sky.png" type="Texture" id=1]
 [ext_resource path="res://objects/camera/cameraEffects/Blackout.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "end"
 length = 0.5
 tracks/0/type = "value"
@@ -19,8 +19,7 @@ tracks/0/keys = {
 "values": [ Color( 0.196078, 0.196078, 0.196078, 1 ), Color( 0.196078, 0.196078, 0.196078, 0.764706 ), Color( 0.196078, 0.196078, 0.196078, 0.529412 ), Color( 0.196078, 0.196078, 0.196078, 0.294118 ), Color( 0.196078, 0.196078, 0.196078, 0.0588235 ), Color( 0.196078, 0.196078, 0.196078, 0 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "start"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -41,5 +40,5 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/end = SubResource( 2 )
-anims/start = SubResource( 1 )
+anims/end = SubResource( 1 )
+anims/start = SubResource( 2 )

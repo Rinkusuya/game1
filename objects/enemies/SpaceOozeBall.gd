@@ -1,5 +1,7 @@
 extends CommonEnemy
 
+signal exitedScreen
+
 var _paused = false
 const STARTINGLIFE = 10
 var vel = Vector2.ZERO
@@ -45,6 +47,7 @@ func enteredScreen():
 
 func exitedScreen():
 	respawn()
+	emit_signal("exitedScreen")
 	$CollisionShape2D.disabled = true
 	visible = false
 

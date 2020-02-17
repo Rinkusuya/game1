@@ -202,6 +202,7 @@ gameDebug={
 2d_physics/layer_5="player_hitbox"
 2d_physics/layer_6="enemy_hitbox"
 2d_physics/layer_7="vertical_ladder_top"
+2d_physics/layer_8="screen_borders"
 2d_physics/layer_11="camera_delimiters"
 2d_physics/layer_12="level_transition"
 

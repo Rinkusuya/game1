@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objects/enemies/SpawningArea.gd" type="Script" id=1]
+
+[node name="SpawningArea" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 128
+collide_with_areas = true
+collide_with_bodies = false
+[connection signal="body_shape_entered" from="." to="." method="_on_SpawningArea_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_SpawningArea_body_shape_exited"]

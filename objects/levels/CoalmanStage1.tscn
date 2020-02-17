@@ -125,7 +125,9 @@ Type = "Iron"
 [node name="Player" parent="." instance=ExtResource( 10 )]
 position = Vector2( 96, 480 )
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="." groups=[
+"enemy_container",
+]]
 
 [node name="Others" type="Node2D" parent="."]
 editor/display_folded = true
@@ -191,8 +193,10 @@ LARGURA = 480.0
 RESOLUCAO = 32.0
 COR = Color( 0.839216, 0.172549, 0.172549, 0.72549 )
 droplets_material_path = ExtResource( 16 )
+TENSAO = 0.025
 AMORTECIMENTO = 0.5
 PASSES = 2
+DISPERSAO = 0.01
 
 [node name="Particles2D" type="Particles2D" parent="Lava"]
 position = Vector2( 224, 0 )

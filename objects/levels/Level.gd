@@ -3,6 +3,7 @@ extends Node2D
 var camera : KinematicBody2D
 var player : KinematicBody2D
 var dispensableContainer : Node2D
+var enemyContainer : Node2D
 
 var playerHasPU_Fisherman = true
 var playerHasPU_Snowman = true
@@ -23,6 +24,9 @@ func _ready():
 	aux = get_tree().get_nodes_in_group("dispensable_container")
 	if aux:
 		dispensableContainer = aux[0]
+	aux = get_tree().get_nodes_in_group("enemy_container")
+	if aux:
+		enemyContainer = aux[0]
 	setLives(3)
 
 func setCamera(new_camera : KinematicBody2D):

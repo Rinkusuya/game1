@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://objects/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://assets/visuals/backgrounds/sea_to_sky/sea_to_sky_bg.png" type="Texture" id=2]
@@ -15,12 +15,15 @@
 [ext_resource path="res://objects/enemies/Miner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://objects/enemies/Slime.tscn" type="PackedScene" id=14]
 [ext_resource path="res://objects/enemies/Penguin.tscn" type="PackedScene" id=15]
-[ext_resource path="res://objects/enemies/SpaceOozeBall.tscn" type="PackedScene" id=16]
+[ext_resource path="res://objects/enemies/SpawningArea.tscn" type="PackedScene" id=16]
 [ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_J.tscn" type="PackedScene" id=17]
 [ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_T.tscn" type="PackedScene" id=18]
 [ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_l.tscn" type="PackedScene" id=19]
 [ext_resource path="res://objects/camera/GameCamera.tscn" type="PackedScene" id=20]
 [ext_resource path="res://icon.png" type="Texture" id=21]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 960, 320 )
 
 [node name="TestScene" type="Node2D" groups=[
 "level_root",
@@ -671,7 +674,9 @@ position = Vector2( 288, 0 )
 [node name="Player" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1312, 480 )
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="." groups=[
+"enemy_container",
+]]
 
 [node name="Miner" parent="Enemies" instance=ExtResource( 13 )]
 position = Vector2( 512, 992 )
@@ -682,8 +687,13 @@ position = Vector2( 1824, 1184 )
 [node name="Penguin" parent="Enemies" instance=ExtResource( 15 )]
 position = Vector2( 864, 288 )
 
-[node name="SpaceOozeBall" parent="Enemies" instance=ExtResource( 16 )]
-position = Vector2( 928, -440 )
+[node name="SpawningArea" parent="Enemies" instance=ExtResource( 16 )]
+editor/display_folded = true
+Enemy = "SpaceOozeBall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/SpawningArea"]
+position = Vector2( 960, -320 )
+shape = SubResource( 1 )
 
 [node name="Others" type="Node2D" parent="."]
 
@@ -692,7 +702,6 @@ position = Vector2( 928, -440 )
 ]]
 
 [node name="CameraDelimiters" type="Node2D" parent="Others"]
-editor/display_folded = true
 
 [node name="Delimiter_J" parent="Others/CameraDelimiters" instance=ExtResource( 17 )]
 position = Vector2( 0, 1280 )
