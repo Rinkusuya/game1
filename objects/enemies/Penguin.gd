@@ -67,6 +67,8 @@ func exitedScreen():
 	respawn()
 	$CollisionShape2D.disabled = true
 	visible = false
+	vel = Vector2.ZERO
+	move_and_slide(vel)
 
 func timeMultiplierChanged():
 	$AnimationPlayer.playback_speed = _time_multiplier
