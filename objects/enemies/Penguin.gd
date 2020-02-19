@@ -69,6 +69,7 @@ func exitedScreen():
 	visible = false
 	vel = Vector2.ZERO
 	move_and_slide(vel)
+	timeElapsed = 0.0
 
 func timeMultiplierChanged():
 	$AnimationPlayer.playback_speed = _time_multiplier
