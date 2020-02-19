@@ -146,6 +146,9 @@ func _physics_process(delta):
 				#print(obj.name)
 				#print(obj.get_collision_layer_bit(5))
 				
+				if obj.get_collision_layer_bit(0) and obj.has_method("hit"):
+					hit(self)
+				
 				#Instadeath
 				if obj.get_collision_layer_bit(1):
 					move_and_slide(Vector2.ZERO, Vector2.ZERO)
@@ -248,12 +251,12 @@ func animationUpdate():
 			anim_attack = false
 			$AnimationPlayer.stop()
 			match $Sprite/Body.frame:
-				4, 6:
+				6, 8:
 					$AnimationPlayer.play("climbAttack68")
 				_:
 					$AnimationPlayer.play("climbAttack79")
 		elif not attacking and moving and not climbAnim:
-			if $Sprite/Body.frame == 4:
+			if $Sprite/Body.frame == 6:
 				$AnimationPlayer.play("climb7")
 			else:
 				$AnimationPlayer.play("climb6")
@@ -261,10 +264,10 @@ func animationUpdate():
 			$AnimationPlayer.stop()
 		else:
 			match $Sprite/Body.frame:
-				4, 5, 6, 7:
+				6, 7, 8, 9:
 					pass
 				_:
-					$Sprite/Body.frame = 4
+					$Sprite/Body.frame = 6
 		
 	elif is_on_floor() and not is_dead:
 		if vel.x!=0:
