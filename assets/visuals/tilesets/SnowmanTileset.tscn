@@ -29,7 +29,7 @@ extents = Vector2( 8, 8 )
 editor/display_folded = true
 position = Vector2( 8, 8 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 13
 __meta__ = {
 "_edit_group_": true
 }
@@ -45,7 +45,7 @@ shape = SubResource( 1 )
 editor/display_folded = true
 position = Vector2( 24, 8 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 13
 frame = 1
 __meta__ = {
 "_edit_group_": true
@@ -62,7 +62,7 @@ shape = SubResource( 2 )
 editor/display_folded = true
 position = Vector2( 40, 8 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 13
 frame = 2
 __meta__ = {
 "_edit_group_": true
@@ -79,7 +79,7 @@ shape = SubResource( 3 )
 editor/display_folded = true
 position = Vector2( 56, 8 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 13
 frame = 3
 __meta__ = {
 "_edit_group_": true
@@ -96,7 +96,7 @@ shape = SubResource( 4 )
 editor/display_folded = true
 position = Vector2( 72, 8 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 13
 frame = 4
 __meta__ = {
 "_edit_group_": true
@@ -113,7 +113,7 @@ shape = SubResource( 5 )
 editor/display_folded = true
 position = Vector2( 88, 8 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 13
 frame = 5
 __meta__ = {
 "_edit_group_": true
@@ -130,7 +130,7 @@ shape = SubResource( 6 )
 editor/display_folded = true
 position = Vector2( 104, 8 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 13
 frame = 6
 __meta__ = {
 "_edit_group_": true
@@ -143,19 +143,104 @@ collision_mask = 0
 visible = false
 shape = SubResource( 7 )
 
-[node name="IceFloor" type="Sprite" parent="."]
+[node name="IceFloor1" type="Sprite" parent="."]
 editor/display_folded = true
 position = Vector2( 120, 8 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 13
 frame = 7
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="IceFloor"]
+[node name="StaticBody2D" type="StaticBody2D" parent="IceFloor1"]
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IceFloor/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceFloor1/StaticBody2D"]
+visible = false
+shape = SubResource( 7 )
+
+[node name="IceFloor2" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 136, 8 )
+texture = ExtResource( 1 )
+hframes = 13
+frame = 8
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="IceFloor2"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceFloor2/StaticBody2D"]
+visible = false
+shape = SubResource( 7 )
+
+[node name="IceFloor3" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 152, 8 )
+texture = ExtResource( 1 )
+hframes = 13
+frame = 9
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="IceFloor3"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceFloor3/StaticBody2D"]
+visible = false
+shape = SubResource( 7 )
+
+[node name="IceFloor4" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 168, 8 )
+texture = ExtResource( 1 )
+hframes = 13
+frame = 10
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="IceFloor4"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceFloor4/StaticBody2D"]
+visible = false
+shape = SubResource( 7 )
+
+[node name="IceFloor5" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 184, 8 )
+texture = ExtResource( 1 )
+hframes = 13
+frame = 11
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="IceFloor5"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceFloor5/StaticBody2D"]
+visible = false
+shape = SubResource( 7 )
+
+[node name="IceFloor6" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 200, 8 )
+texture = ExtResource( 1 )
+hframes = 13
+frame = 12
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="IceFloor6"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceFloor6/StaticBody2D"]
 visible = false
 shape = SubResource( 7 )
