@@ -2,6 +2,8 @@ extends GameEntity
 
 class_name CommonEnemy
 
+export(bool) var RepetitiveSpawning = false
+
 var out_of_bounds = true
 
 var drop = preload("res://objects/Drop.tscn")
@@ -62,7 +64,8 @@ func exitedScreen():
 
 func respawn():
 	global_position = checkpoint_gpos
-	waitingToExitSpawnPoint = true
+	if not RepetitiveSpawning:
+		waitingToExitSpawnPoint = true
 
 func die():
 	level.dispensableContainer.add_child(drop.instance().init(global_position))
