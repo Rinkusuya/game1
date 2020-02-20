@@ -114,9 +114,14 @@ func _physics_process(delta):
 				jump = 0
 				canJump = 0
 				jumpHold = true
+			if jumpHold and $SmearPlayer.playback_speed != 1.0:
+				$SmearPlayer.playback_speed = 1.0
+			elif not jumpHold and $SmearPlayer.playback_speed != 4.0:
+				$SmearPlayer.playback_speed = 4.0
 			anim_landingvel = vel
 			wasOnAir = true
-			
+		
+		
 		accel.y = GRAVACCEL*delta*(1.0 if jumpHold else 4.0)
 		accel = accel*_time_multiplier
 		vel += accel*(1.0 if not hurtingAnim else 0.2) if not grabbingLadder else Vector2.ZERO
@@ -282,6 +287,7 @@ func animationUpdate():
 		
 		if anim_justLanded:
 			$SmearPlayer.stop()
+			$SmearPlayer.playback_speed = 1.0
 			if abs(anim_landingvel.y) > 1600:
 				$SmearPlayer.play("mediumLandingSmearing")
 			else:
