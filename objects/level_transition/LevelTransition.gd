@@ -31,14 +31,16 @@ func activate():
 		var vect = global_position - camera.global_position
 		#print("vect: " + str(vect))
 		var dir
-		if vect.x > 240:
-			dir = Vector2.RIGHT
-		elif vect.x < -240:
-			dir = Vector2.LEFT
-		elif vect.y > 160:
-			dir = Vector2.DOWN
-		elif vect.y < -160:
-			dir = Vector2.UP
+		if rotation != 0.0:
+			if vect.x > 64:
+				dir = Vector2.RIGHT
+			elif vect.x < -64:
+				dir = Vector2.LEFT
+		else:
+			if vect.y > 64:
+				dir = Vector2.DOWN
+			elif vect.y < -64:
+				dir = Vector2.UP
 		
 		#Wait some time
 		var timer = Timer.new()
