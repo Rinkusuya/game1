@@ -152,7 +152,7 @@ func _physics_process(delta):
 				#print(obj.get_collision_layer_bit(5))
 				
 				if obj.get_collision_layer_bit(0) and obj.has_method("hit"):
-					hit(self)
+					pass
 				
 				#Instadeath
 				if obj.get_collision_layer_bit(1):
