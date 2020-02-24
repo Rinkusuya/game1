@@ -4,16 +4,16 @@
 [ext_resource path="res://assets/visuals/backgrounds/sea_to_sky/sea_to_sky_bg.png" type="Texture" id=2]
 [ext_resource path="res://assets/visuals/tilesets/SnowmanTileset.tres" type="TileSet" id=3]
 [ext_resource path="res://objects/instadeath_blocks/Instadeath_Block.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_J.tscn" type="PackedScene" id=6]
-[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_l.tscn" type="PackedScene" id=7]
-[ext_resource path="res://objects/camera/GameCamera.tscn" type="PackedScene" id=8]
-[ext_resource path="res://objects/tiles/HandLadder.tscn" type="PackedScene" id=9]
-[ext_resource path="res://objects/tiles/TopHandLadder.tscn" type="PackedScene" id=10]
-[ext_resource path="res://objects/enemies/Penguin.tscn" type="PackedScene" id=11]
-[ext_resource path="res://objects/level_transition/LevelTransition.tscn" type="PackedScene" id=12]
-[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_T.tscn" type="PackedScene" id=13]
-[ext_resource path="res://objects/enemies/Iceite.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/tiles/HandLadder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/tiles/TopHandLadder.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/enemies/Penguin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/enemies/Iceite.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_J.tscn" type="PackedScene" id=10]
+[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_l.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/camera/cameraDelimiters/Delimiter_T.tscn" type="PackedScene" id=12]
+[ext_resource path="res://objects/level_transition/LevelTransition.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/camera/GameCamera.tscn" type="PackedScene" id=14]
 
 [node name="SnowmanStage1" type="Node2D" groups=[
 "level_root",
@@ -32,25 +32,32 @@ position = Vector2( 480, 320 )
 texture = ExtResource( 2 )
 hframes = 4
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-motion_mirroring = Vector2( 960, 0 )
-
-[node name="sea_to_sky_bg" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer2"]
+[node name="sea_to_sky_bg2" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
 position = Vector2( 480, -320 )
 texture = ExtResource( 2 )
 hframes = 4
 frame = 1
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-motion_mirroring = Vector2( 960, 0 )
-
-[node name="sea_to_sky_bg" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer3"]
+[node name="sea_to_sky_bg3" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
 position = Vector2( 480, -960 )
 texture = ExtResource( 2 )
 hframes = 4
 frame = 1
 
+[node name="sea_to_sky_bg4" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 480, -1600 )
+texture = ExtResource( 2 )
+hframes = 4
+frame = 1
+
+[node name="sea_to_sky_bg5" type="Sprite" parent="Background/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 480, -2240 )
+texture = ExtResource( 2 )
+hframes = 4
+frame = 1
+
 [node name="LevelTiles" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="SnowmanTileset_TileMap" type="TileMap" parent="LevelTiles"]
 scale = Vector2( 4, 4 )
@@ -74,95 +81,95 @@ position = Vector2( 2272, 96 )
 [node name="Instadeath_Block10" parent="LevelTiles" instance=ExtResource( 4 )]
 position = Vector2( 2464, 96 )
 
-[node name="HandLadder" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 1632, -32 )
 Type = "Ice"
 
-[node name="HandLadder2" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder2" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 1632, 32 )
 Type = "Ice"
 
-[node name="HandLadder3" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder3" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 1632, 96 )
 Type = "Ice"
 
-[node name="HandLadder4" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder4" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 1632, 160 )
 Type = "Ice"
 
-[node name="HandLadder5" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder5" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 2656, -544 )
 Type = "Ice"
 
-[node name="HandLadder6" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder6" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 2656, -480 )
 Type = "Ice"
 
-[node name="HandLadder7" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder7" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 2656, -416 )
 Type = "Ice"
 
-[node name="HandLadder8" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder8" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3296, -672 )
 Type = "Ice"
 
-[node name="HandLadder9" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder9" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3296, -608 )
 Type = "Ice"
 
-[node name="HandLadder10" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder10" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3296, -544 )
 Type = "Ice"
 
-[node name="HandLadder11" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder11" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3296, -480 )
 Type = "Ice"
 
-[node name="HandLadder12" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder12" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3744, -1376 )
 Type = "Ice"
 
-[node name="HandLadder13" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder13" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3744, -1312 )
 Type = "Ice"
 
-[node name="HandLadder14" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder14" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3744, -1248 )
 Type = "Ice"
 
-[node name="HandLadder18" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder18" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3744, -1184 )
 Type = "Ice"
 
-[node name="HandLadder17" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder17" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3040, -1952 )
 Type = "Ice"
 
-[node name="HandLadder16" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder16" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3040, -1888 )
 Type = "Ice"
 
-[node name="HandLadder15" parent="LevelTiles" instance=ExtResource( 9 )]
+[node name="HandLadder15" parent="LevelTiles" instance=ExtResource( 5 )]
 position = Vector2( 3040, -1824 )
 Type = "Ice"
 
-[node name="TopHandLadder" parent="LevelTiles" instance=ExtResource( 10 )]
+[node name="TopHandLadder" parent="LevelTiles" instance=ExtResource( 6 )]
 position = Vector2( 1632, -96 )
 Type = "Ice"
 
-[node name="TopHandLadder2" parent="LevelTiles" instance=ExtResource( 10 )]
+[node name="TopHandLadder2" parent="LevelTiles" instance=ExtResource( 6 )]
 position = Vector2( 2656, -608 )
 Type = "Ice"
 
-[node name="TopHandLadder3" parent="LevelTiles" instance=ExtResource( 10 )]
+[node name="TopHandLadder3" parent="LevelTiles" instance=ExtResource( 6 )]
 position = Vector2( 3296, -736 )
 Type = "Ice"
 
-[node name="TopHandLadder4" parent="LevelTiles" instance=ExtResource( 10 )]
+[node name="TopHandLadder4" parent="LevelTiles" instance=ExtResource( 6 )]
 position = Vector2( 3744, -1440 )
 Type = "Ice"
 
-[node name="TopHandLadder5" parent="LevelTiles" instance=ExtResource( 10 )]
+[node name="TopHandLadder5" parent="LevelTiles" instance=ExtResource( 6 )]
 position = Vector2( 3040, -2016 )
 Type = "Ice"
 
@@ -199,33 +206,34 @@ position = Vector2( 2912, 96 )
 [node name="Instadeath_Block16" parent="LevelTiles" instance=ExtResource( 4 )]
 position = Vector2( 2976, 96 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 112, 416 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Penguin2" parent="Enemies" instance=ExtResource( 11 )]
+[node name="Penguin2" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 968, -632 )
 RepetitiveSpawning = true
 walking = "R"
 
-[node name="Penguin" parent="Enemies" instance=ExtResource( 11 )]
+[node name="Penguin" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 3680, -616 )
 RepetitiveSpawning = true
 
-[node name="Iceite" parent="Enemies" instance=ExtResource( 14 )]
+[node name="Iceite" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 2080, -96 )
 
-[node name="Iceite2" parent="Enemies" instance=ExtResource( 14 )]
+[node name="Iceite2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3488, -800 )
 
-[node name="Iceite3" parent="Enemies" instance=ExtResource( 14 )]
+[node name="Iceite3" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3296, -1504 )
 
-[node name="Iceite4" parent="Enemies" instance=ExtResource( 14 )]
+[node name="Iceite4" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 3232, -1568 )
 
 [node name="Others" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="DispensableContainer" type="Node2D" parent="Others" groups=[
 "dispensable_container",
@@ -233,91 +241,91 @@ position = Vector2( 3232, -1568 )
 
 [node name="CameraDelimiters" type="Node2D" parent="Others"]
 
-[node name="Delimiter_J" parent="Others/CameraDelimiters" instance=ExtResource( 6 )]
+[node name="Delimiter_J" parent="Others/CameraDelimiters" instance=ExtResource( 10 )]
 position = Vector2( 0, 640 )
 rotation = 1.5708
 
-[node name="Delimiter_J4" parent="Others/CameraDelimiters" instance=ExtResource( 6 )]
+[node name="Delimiter_J4" parent="Others/CameraDelimiters" instance=ExtResource( 10 )]
 position = Vector2( 960, 0 )
 rotation = 1.5708
 
-[node name="Delimiter_l" parent="Others/CameraDelimiters" instance=ExtResource( 7 )]
+[node name="Delimiter_l" parent="Others/CameraDelimiters" instance=ExtResource( 11 )]
 
-[node name="Delimiter_l2" parent="Others/CameraDelimiters" instance=ExtResource( 7 )]
+[node name="Delimiter_l2" parent="Others/CameraDelimiters" instance=ExtResource( 11 )]
 position = Vector2( 960, 640 )
 rotation = 1.5708
 
-[node name="Delimiter_J2" parent="Others/CameraDelimiters" instance=ExtResource( 6 )]
+[node name="Delimiter_J2" parent="Others/CameraDelimiters" instance=ExtResource( 10 )]
 position = Vector2( 0, -640 )
 rotation = -3.14159
 
-[node name="Delimiter_l3" parent="Others/CameraDelimiters" instance=ExtResource( 7 )]
+[node name="Delimiter_l3" parent="Others/CameraDelimiters" instance=ExtResource( 11 )]
 position = Vector2( 1920, 0 )
 rotation = 1.57079
 
-[node name="Delimiter_J3" parent="Others/CameraDelimiters" instance=ExtResource( 6 )]
+[node name="Delimiter_J3" parent="Others/CameraDelimiters" instance=ExtResource( 10 )]
 position = Vector2( 1920, -640 )
 
-[node name="Delimiter_J5" parent="Others/CameraDelimiters" instance=ExtResource( 6 )]
+[node name="Delimiter_J5" parent="Others/CameraDelimiters" instance=ExtResource( 10 )]
 position = Vector2( 3840, 0 )
 
-[node name="Delimiter_l4" parent="Others/CameraDelimiters" instance=ExtResource( 7 )]
+[node name="Delimiter_l4" parent="Others/CameraDelimiters" instance=ExtResource( 11 )]
 position = Vector2( 3840, -640 )
 
-[node name="Delimiter_J7" parent="Others/CameraDelimiters" instance=ExtResource( 6 )]
+[node name="Delimiter_J7" parent="Others/CameraDelimiters" instance=ExtResource( 10 )]
 position = Vector2( 4800, -1920 )
 
-[node name="Delimiter_J8" parent="Others/CameraDelimiters" instance=ExtResource( 6 )]
+[node name="Delimiter_J8" parent="Others/CameraDelimiters" instance=ExtResource( 10 )]
 position = Vector2( 2880, -2560 )
 rotation = -3.14159
 
-[node name="Delimiter_l7" parent="Others/CameraDelimiters" instance=ExtResource( 7 )]
+[node name="Delimiter_l7" parent="Others/CameraDelimiters" instance=ExtResource( 11 )]
 position = Vector2( 3840, -2560 )
 rotation = 1.5708
 
-[node name="Delimiter_l8" parent="Others/CameraDelimiters" instance=ExtResource( 7 )]
+[node name="Delimiter_l8" parent="Others/CameraDelimiters" instance=ExtResource( 11 )]
 position = Vector2( 2880, 0 )
 rotation = 1.57079
 
-[node name="Delimiter_l9" parent="Others/CameraDelimiters" instance=ExtResource( 7 )]
+[node name="Delimiter_l9" parent="Others/CameraDelimiters" instance=ExtResource( 11 )]
 position = Vector2( 1920, 640 )
 rotation = 1.57079
 
-[node name="Delimiter_J10" parent="Others/CameraDelimiters" instance=ExtResource( 6 )]
+[node name="Delimiter_J10" parent="Others/CameraDelimiters" instance=ExtResource( 10 )]
 position = Vector2( 1920, -1280 )
 rotation = -3.14159
 
-[node name="Delimiter_T" parent="Others/CameraDelimiters" instance=ExtResource( 13 )]
+[node name="Delimiter_T" parent="Others/CameraDelimiters" instance=ExtResource( 12 )]
 position = Vector2( 2880, -1280 )
 rotation = -4.71239
 
-[node name="Delimiter_T2" parent="Others/CameraDelimiters" instance=ExtResource( 13 )]
+[node name="Delimiter_T2" parent="Others/CameraDelimiters" instance=ExtResource( 12 )]
 position = Vector2( 3840, -1280 )
 rotation = -1.5708
 
-[node name="Delimiter_T3" parent="Others/CameraDelimiters" instance=ExtResource( 13 )]
+[node name="Delimiter_T3" parent="Others/CameraDelimiters" instance=ExtResource( 12 )]
 position = Vector2( 3840, -1920 )
 
-[node name="Delimiter_T4" parent="Others/CameraDelimiters" instance=ExtResource( 13 )]
+[node name="Delimiter_T4" parent="Others/CameraDelimiters" instance=ExtResource( 12 )]
 position = Vector2( 2880, -1920 )
 rotation = -3.14159
 
 [node name="LevelTransitions" type="Node2D" parent="Others"]
 
-[node name="LevelTransition" parent="Others/LevelTransitions" instance=ExtResource( 12 )]
+[node name="LevelTransition" parent="Others/LevelTransitions" instance=ExtResource( 13 )]
 position = Vector2( 1632, 0 )
 
-[node name="LevelTransition3" parent="Others/LevelTransitions" instance=ExtResource( 12 )]
+[node name="LevelTransition3" parent="Others/LevelTransitions" instance=ExtResource( 13 )]
 position = Vector2( 3744, -1280 )
 
-[node name="LevelTransition2" parent="Others/LevelTransitions" instance=ExtResource( 12 )]
+[node name="LevelTransition2" parent="Others/LevelTransitions" instance=ExtResource( 13 )]
 position = Vector2( 3680, -1920 )
 
-[node name="LevelTransition4" parent="Others/LevelTransitions" instance=ExtResource( 12 )]
+[node name="LevelTransition4" parent="Others/LevelTransitions" instance=ExtResource( 13 )]
 position = Vector2( 3488, -1920 )
 
-[node name="LevelTransition5" parent="Others/LevelTransitions" instance=ExtResource( 12 )]
+[node name="LevelTransition5" parent="Others/LevelTransitions" instance=ExtResource( 13 )]
 position = Vector2( 3040, -1920 )
 
-[node name="GameCamera" parent="." instance=ExtResource( 8 )]
+[node name="GameCamera" parent="." instance=ExtResource( 14 )]
 position = Vector2( 480, 320 )
