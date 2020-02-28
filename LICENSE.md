@@ -1,6 +1,6 @@
 [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
 
-This work except for his engine addons (licenses for addons on respective folders) is licensed under a [Creative Commons Attribution-NonCommercial 4.0
+This work, except for engine addons and font, is licensed under a [Creative Commons Attribution-NonCommercial 4.0
 International License][cc-by-nc].
 
 [![CC BY-NC 4.0][cc-by-nc-image]][cc-by-nc]
